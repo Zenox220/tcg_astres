@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Administration — Chroniques d’Astréa</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="admin-stars" aria-hidden="true"></div>
+
+  <main id="admin-login-view" class="admin-login-view">
+    <section class="admin-login-card">
+      <div class="admin-brand-mark">✦</div>
+      <p class="admin-kicker">LB Studio</p>
+      <h1>Administration Astréa</h1>
+      <p class="admin-muted">Espace sécurisé de modération et de gestion des comptes.</p>
+      <form id="admin-login-form" class="admin-form">
+        <label>
+          <span>Identifiant administrateur</span>
+          <input id="admin-login-username" type="text" autocomplete="username" required maxlength="40" />
+        </label>
+        <label>
+          <span>Mot de passe</span>
+          <input id="admin-login-password" type="password" autocomplete="current-password" required />
+        </label>
+        <p id="admin-login-error" class="admin-error hidden"></p>
+        <button id="admin-login-submit" class="admin-btn admin-btn-primary" type="submit">Ouvrir le panneau</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="admin-app" class="admin-app hidden">
+    <aside class="admin-sidebar">
+      <div class="admin-sidebar-brand">
+        <span>✦</span>
+        <div><strong>Astréa</strong><small>Administration</small></div>
+      </div>
+      <nav class="admin-nav" aria-label="Navigation administrateur">
+        <button class="admin-nav-btn active" data-view="dashboard" type="button">⌂ <span>Tableau de bord</span></button>
+        <button class="admin-nav-btn" data-view="reports" type="button">⚑ <span>Signalements</span><b id="admin-open-reports-badge">0</b></button>
+        <button class="admin-nav-btn" data-view="players" type="button">♙ <span>Joueurs</span></button>
+        <button class="admin-nav-btn" data-view="popups" type="button">▣ <span>Pop-up du jeu</span></button>
+        <button class="admin-nav-btn" data-view="cards" type="button">◈ <span>Cartes</span></button>
+        <button class="admin-nav-btn" data-view="events" type="button">✦ <span>Événements</span></button>
+        <button class="admin-nav-btn" data-view="quests" type="button">✓ <span>Quêtes</span></button>
+        <button class="admin-nav-btn" data-view="shop" type="button">◆ <span>Boutique</span></button>
+        <button class="admin-nav-btn" data-view="maintenance" type="button">⚙ <span>Maintenance</span></button>
+        <button class="admin-nav-btn" data-view="codes" type="button">⌘ <span>Codes cadeaux</span></button>
+        <button class="admin-nav-btn" data-view="logs" type="button">☷ <span>Logs</span></button>
+      </nav>
+      <div class="admin-sidebar-footer">
+        <span id="admin-session-name">Administrateur</span>
+        <button id="admin-logout-btn" type="button">Déconnexion</button>
+      </div>
+    </aside>
+
+    <section class="admin-workspace">
+      <header class="admin-topbar">
+        <div>
+          <p id="admin-view-kicker" class="admin-kicker">Vue d’ensemble</p>
+          <h1 id="admin-view-title">Tableau de bord</h1>
+        </div>
+        <a class="admin-game-link" href="index.html">Retour au jeu ↗</a>
+      </header>
+
+      <div id="admin-global-message" class="admin-global-message hidden"></div>
+
+      <section id="admin-dashboard-view" class="admin-view">
+        <div class="admin-stat-grid">
+          <article class="admin-stat-card"><span>Signalements ouverts</span><strong id="admin-stat-open">0</strong></article>
+          <article class="admin-stat-card"><span>En cours d’examen</span><strong id="admin-stat-reviewing">0</strong></article>
+          <article class="admin-stat-card"><span>Résolus récemment</span><strong id="admin-stat-resolved">0</strong></article>
+          <article class="admin-stat-card"><span>Webhooks en erreur</span><strong id="admin-stat-webhook-errors">0</strong></article>
+        </div>
+        <div class="admin-panel">
+          <div class="admin-panel-heading"><div><p class="admin-kicker">Priorité</p><h2>Derniers signalements ouverts</h2></div><button class="admin-btn admin-btn-secondary" data-open-view="reports" type="button">Tout afficher</button></div>
+          <div id="admin-dashboard-reports" class="admin-report-list"></div>
+        </div>
+      </section>
+
+      <section id="admin-reports-view" class="admin-view hidden">
+        <div class="admin-split-layout">
+          <div class="admin-panel admin-list-panel">
+            <div class="admin-panel-heading compact">
+              <h2>Signalements</h2>
+              <select id="admin-report-status-filter" aria-label="Filtrer les signalements">
+                <option value="">Tous</option>
+                <option value="open">Ouverts</option>
+                <option value="reviewing">En cours</option>
+                <option value="resolved">Résolus</option>
+                <option value="dismissed">Classés</option>
+              </select>
+            </div>
+            <div id="admin-reports-list" class="admin-report-list"></div>
+          </div>
+          <div id="admin-report-detail" class="admin-panel admin-detail-panel">
+            <div class="admin-empty-state"><span>⚑</span><h3>Sélectionnez un signalement</h3><p>Les informations détaillées apparaîtront ici.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="admin-popups-view" class="admin-view hidden">
+        <div class="admin-popup-layout">
+          <form id="admin-popup-form" class="admin-panel admin-form admin-popup-editor">
+            <div class="admin-panel-heading">
+              <div>
+                <p class="admin-kicker">Publication en jeu</p>
+                <h2 id="admin-popup-form-title">Créer une pop-up</h2>
+              </div>
+              <button id="admin-popup-cancel-btn" class="admin-btn admin-btn-secondary hidden" type="button">Annuler l’édition</button>
+            </div>
+            <input id="admin-popup-id" type="hidden" />
+
+            <div class="admin-popup-form-body">
+              <label><span>Titre</span><input id="admin-popup-title" type="text" maxlength="120" required placeholder="Ex. Nouvelle saison disponible !" /></label>
+              <label><span>Description</span><textarea id="admin-popup-description" maxlength="5000" placeholder="Présentez l’annonce, la mise à jour ou l’événement…"></textarea></label>
+              <label><span>Footer facultatif</span><input id="admin-popup-footer" type="text" maxlength="250" placeholder="Ex. — L’équipe LB Studio" /></label>
+
+              <div class="admin-popup-fieldset">
+                <div class="admin-popup-fieldset-heading">
+                  <div><strong>Images</strong><small>Jusqu’à 8 images, affichées en diaporama.</small></div>
+                  <button id="admin-popup-add-image-btn" class="admin-btn admin-btn-secondary" type="button">+ Ajouter une image</button>
+                </div>
+                <div id="admin-popup-images-list" class="admin-popup-repeater"></div>
+              </div>
+
+              <div class="admin-popup-fieldset">
+                <div class="admin-popup-fieldset-heading">
+                  <div><strong>Boutons</strong><small>Facultatif, jusqu’à 4 boutons avec lien.</small></div>
+                  <button id="admin-popup-add-button-btn" class="admin-btn admin-btn-secondary" type="button">+ Ajouter un bouton</button>
+                </div>
+                <div id="admin-popup-buttons-list" class="admin-popup-repeater"></div>
+              </div>
+
+              <div class="admin-popup-fieldset">
+                <div class="admin-popup-fieldset-heading"><div><strong>Récompense intégrée</strong><small>Facultative, récupérable une seule fois par compte.</small></div></div>
+                <label class="admin-popup-checkbox-row"><input id="admin-popup-reward-enabled" type="checkbox" /><span>Ajouter un bouton « Récupérer »</span></label>
+                <div id="admin-popup-reward-fields" class="admin-popup-schedule-grid hidden">
+                  <label><span>Type</span><select id="admin-popup-reward-type"><option value="coins">Pièces</option><option value="pack">Paquet</option><option value="card">Carte</option></select></label>
+                  <label><span>Quantité</span><input id="admin-popup-reward-amount" type="number" min="1" max="1000000" value="100" /></label>
+                  <label id="admin-popup-reward-pack-wrap" class="hidden"><span>Type de paquet</span><select id="admin-popup-reward-pack-id"><option value="astral">Pack Astral</option><option value="zenith">Pack du Zénith</option><option value="neant">Pack du Néant</option><option value="quetes">Pack des Quêtes</option></select></label>
+                  <label id="admin-popup-reward-card-wrap" class="hidden"><span>Carte</span><select id="admin-popup-reward-card-id"></select></label>
+                </div>
+              </div>
+
+              <div class="admin-popup-fieldset">
+                <div class="admin-popup-fieldset-heading"><div><strong>Ciblage des joueurs</strong><small>Choisissez qui recevra cette annonce.</small></div></div>
+                <label><span>Audience</span><select id="admin-popup-target-type"><option value="all">Tous les joueurs</option><option value="new">Nouveaux joueurs</option><option value="rank">Rang League précis</option><option value="inactive">Joueurs inactifs</option><option value="admins">Administrateurs</option><option value="usernames">Liste de pseudos</option></select></label>
+                <div id="admin-popup-target-new" class="admin-popup-schedule-grid hidden">
+                  <label><span>Compte créé depuis moins de</span><input id="admin-popup-target-age-days" type="number" min="1" max="365" value="7" /></label>
+                  <label><span>Combats maximum</span><input id="admin-popup-target-max-matches" type="number" min="0" max="10000" value="5" /></label>
+                </div>
+                <div id="admin-popup-target-rank" class="hidden"><label><span>Rang League</span><select id="admin-popup-target-rank-tier"></select></label></div>
+                <div id="admin-popup-target-inactive" class="hidden"><label><span>Inactif depuis au moins</span><input id="admin-popup-target-inactive-days" type="number" min="1" max="3650" value="30" /></label></div>
+                <div id="admin-popup-target-usernames" class="hidden"><label><span>Pseudos ciblés</span><textarea id="admin-popup-target-usernames-input" maxlength="4000" placeholder="Un pseudo par ligne ou séparé par des virgules"></textarea></label></div>
+              </div>
+
+              <div class="admin-popup-schedule-grid">
+                <label><span>Début d’affichage</span><input id="admin-popup-starts-at" type="datetime-local" required /></label>
+                <label><span>Durée d’affichage</span>
+                  <select id="admin-popup-duration">
+                    <option value="60">1 heure</option>
+                    <option value="1440" selected>1 jour</option>
+                    <option value="4320">3 jours</option>
+                    <option value="10080">1 semaine</option>
+                    <option value="20160">2 semaines</option>
+                    <option value="43200">30 jours</option>
+                    <option value="custom">Durée personnalisée</option>
+                  </select>
+                </label>
+              </div>
+
+              <div id="admin-popup-custom-duration-wrap" class="admin-popup-schedule-grid hidden">
+                <label><span>Valeur</span><input id="admin-popup-custom-duration" type="number" min="1" max="366" value="1" /></label>
+                <label><span>Unité</span>
+                  <select id="admin-popup-custom-unit">
+                    <option value="hours">Heure(s)</option>
+                    <option value="days" selected>Jour(s)</option>
+                    <option value="weeks">Semaine(s)</option>
+                  </select>
+                </label>
+              </div>
+
+              <label class="admin-popup-checkbox-row">
+                <input id="admin-popup-enabled" type="checkbox" checked />
+                <span>Publication active</span>
+              </label>
+
+              <div class="admin-action-row admin-popup-submit-row">
+                <button id="admin-popup-submit-btn" class="admin-btn admin-btn-primary" type="submit">Publier dans le jeu</button>
+              </div>
+            </div>
+          </form>
+
+          <aside class="admin-panel admin-popup-preview-panel">
+            <div class="admin-panel-heading compact"><div><p class="admin-kicker">Aperçu</p><h2>Rendu dans le jeu</h2></div></div>
+            <div id="admin-popup-preview" class="admin-popup-preview"></div>
+          </aside>
+        </div>
+
+        <div class="admin-panel admin-popup-list-panel">
+          <div class="admin-panel-heading">
+            <div><p class="admin-kicker">Historique</p><h2>Pop-up programmées</h2></div>
+            <button id="admin-popup-refresh-btn" class="admin-btn admin-btn-secondary" type="button">Actualiser</button>
+          </div>
+          <div id="admin-popup-list" class="admin-popup-list"></div>
+        </div>
+      </section>
+
+      <section id="admin-players-view" class="admin-view hidden">
+        <div class="admin-panel admin-player-search-panel">
+          <form id="admin-player-search-form" class="admin-search-row">
+            <input id="admin-player-search-input" type="search" placeholder="Pseudo ou identifiant du joueur…" autocomplete="off" />
+            <button class="admin-btn admin-btn-primary" type="submit">Rechercher</button>
+          </form>
+          <div id="admin-player-search-results" class="admin-player-results"></div>
+        </div>
+
+        <div id="admin-player-detail" class="admin-player-detail hidden">
+          <section class="admin-player-hero admin-panel">
+            <div>
+              <p class="admin-kicker">Compte joueur</p>
+              <h2 id="admin-player-name">Joueur</h2>
+              <p id="admin-player-meta" class="admin-muted"></p>
+            </div>
+            <div class="admin-player-state">
+              <span id="admin-player-online" class="admin-status-pill">Hors ligne</span>
+              <span id="admin-player-ban-state" class="admin-status-pill hidden">Banni</span>
+            </div>
+          </section>
+
+          <div class="admin-player-tabs" role="tablist">
+            <button class="active" data-player-tab="overview" type="button">Vue générale</button>
+            <button data-player-tab="sanctions" type="button">Sanctions</button>
+            <button data-player-tab="economy" type="button">Économie</button>
+            <button data-player-tab="collection" type="button">Cartes & paquets</button>
+            <button data-player-tab="account" type="button">Compte</button>
+            <button data-player-tab="json" type="button">Progression JSON</button>
+          </div>
+
+          <section id="admin-player-tab-overview" class="admin-player-tab-content">
+            <div id="admin-player-stats" class="admin-stat-grid admin-player-stat-grid"></div>
+            <div class="admin-two-columns">
+              <div class="admin-panel"><div class="admin-panel-heading compact"><h2>Signalements reçus</h2></div><div id="admin-player-reports" class="admin-timeline"></div></div>
+              <div class="admin-panel"><div class="admin-panel-heading compact"><h2>Historique administrateur</h2></div><div id="admin-player-actions" class="admin-timeline"></div></div>
+            </div>
+          </section>
+
+          <section id="admin-player-tab-sanctions" class="admin-player-tab-content hidden">
+            <div class="admin-two-columns">
+              <div class="admin-panel">
+                <div class="admin-panel-heading compact"><h2>Bannir le joueur</h2></div>
+                <form id="admin-ban-form" class="admin-form">
+                  <label><span>Raison</span><textarea id="admin-ban-reason" minlength="5" maxlength="500" required placeholder="Expliquez précisément la sanction…"></textarea></label>
+                  <label><span>Durée</span>
+                    <select id="admin-ban-duration">
+                      <option value="60">1 heure</option>
+                      <option value="1440">24 heures</option>
+                      <option value="4320">3 jours</option>
+                      <option value="10080">7 jours</option>
+                      <option value="43200">30 jours</option>
+                      <option value="permanent">Permanent</option>
+                      <option value="custom">Durée personnalisée</option>
+                    </select>
+                  </label>
+                  <label id="admin-ban-custom-wrap" class="hidden"><span>Durée personnalisée en minutes</span><input id="admin-ban-custom-minutes" type="number" min="1" max="5256000" value="120" /></label>
+                  <button class="admin-btn admin-btn-danger" type="submit">Appliquer le bannissement</button>
+                </form>
+              </div>
+              <div class="admin-panel">
+                <div class="admin-panel-heading compact"><h2>Sanction active</h2></div>
+                <div id="admin-active-ban" class="admin-empty-state compact"><p>Aucun bannissement actif.</p></div>
+                <button id="admin-unban-btn" class="admin-btn admin-btn-success hidden" type="button">Débannir le joueur</button>
+              </div>
+            </div>
+            <div class="admin-two-columns admin-sanction-advanced">
+              <form id="admin-warning-form" class="admin-panel admin-form">
+                <div class="admin-panel-heading compact"><h2>Envoyer un avertissement</h2></div>
+                <label><span>Message visible par le joueur</span><textarea id="admin-warning-message" minlength="3" maxlength="1000" required placeholder="Expliquez le comportement attendu…"></textarea></label>
+                <button class="admin-btn admin-btn-warning" type="submit">Envoyer l’avertissement</button>
+                <div id="admin-warning-history" class="admin-timeline"></div>
+              </form>
+              <form id="admin-mute-form" class="admin-panel admin-form">
+                <div class="admin-panel-heading compact"><h2>Rendre le joueur muet</h2></div>
+                <label><span>Raison</span><textarea id="admin-mute-reason" minlength="3" maxlength="500" required placeholder="Motif du mute…"></textarea></label>
+                <label><span>Durée</span><select id="admin-mute-duration"><option value="30">30 minutes</option><option value="60">1 heure</option><option value="360">6 heures</option><option value="1440">24 heures</option><option value="10080">7 jours</option><option value="custom">Personnalisée</option></select></label>
+                <label id="admin-mute-custom-wrap" class="hidden"><span>Durée en minutes</span><input id="admin-mute-custom-minutes" type="number" min="1" max="5256000" value="120" /></label>
+                <button class="admin-btn admin-btn-danger" type="submit">Appliquer le mute</button>
+                <div id="admin-active-mute" class="admin-empty-state compact"><p>Aucun mute actif.</p></div>
+                <button id="admin-unmute-btn" class="admin-btn admin-btn-success hidden" type="button">Lever le mute</button>
+              </form>
+            </div>
+          </section>
+
+          <section id="admin-player-tab-economy" class="admin-player-tab-content hidden">
+            <div class="admin-two-columns">
+              <form id="admin-coins-form" class="admin-panel admin-form">
+                <div class="admin-panel-heading compact"><h2>Modifier les pièces</h2></div>
+                <label><span>Opération</span><select id="admin-coins-mode"><option value="adjust">Ajouter ou retirer</option><option value="set">Définir le total</option></select></label>
+                <label><span>Montant</span><input id="admin-coins-amount" type="number" step="1" value="100" required /></label>
+                <button class="admin-btn admin-btn-primary" type="submit">Appliquer</button>
+              </form>
+              <div class="admin-panel admin-info-callout"><span>◆</span><div><h3>Synchronisation immédiate</h3><p>Les changements sont envoyés au joueur connecté et protégés contre l’écrasement par une ancienne sauvegarde.</p></div></div>
+            </div>
+          </section>
+
+          <section id="admin-player-tab-collection" class="admin-player-tab-content hidden">
+            <div class="admin-two-columns">
+              <form id="admin-card-form" class="admin-panel admin-form">
+                <div class="admin-panel-heading compact"><h2>Modifier une carte</h2></div>
+                <label><span>Carte</span><select id="admin-card-id"></select></label>
+                <label><span>Opération</span><select id="admin-card-mode"><option value="adjust">Ajouter ou retirer</option><option value="set">Définir la quantité</option></select></label>
+                <label><span>Quantité</span><input id="admin-card-amount" type="number" step="1" value="1" required /></label>
+                <button class="admin-btn admin-btn-primary" type="submit">Appliquer à la collection</button>
+              </form>
+              <form id="admin-pack-form" class="admin-panel admin-form">
+                <div class="admin-panel-heading compact"><h2>Modifier les paquets</h2></div>
+                <label><span>Type de paquet</span><select id="admin-pack-id"><option value="astral">Pack Astral</option><option value="zenith">Pack du Zénith</option><option value="neant">Pack du Néant</option><option value="quetes">Pack des Quêtes</option></select></label>
+                <label><span>Opération</span><select id="admin-pack-mode"><option value="adjust">Ajouter ou retirer</option><option value="set">Définir la quantité</option></select></label>
+                <label><span>Quantité</span><input id="admin-pack-amount" type="number" step="1" value="1" required /></label>
+                <button class="admin-btn admin-btn-primary" type="submit">Appliquer à l’inventaire</button>
+              </form>
+            </div>
+          </section>
+
+          <section id="admin-player-tab-account" class="admin-player-tab-content hidden">
+            <div class="admin-two-columns">
+              <form id="admin-identity-form" class="admin-panel admin-form">
+                <div class="admin-panel-heading compact"><h2>Identité et accès</h2></div>
+                <label><span>Nouveau pseudo</span><input id="admin-identity-username" type="text" minlength="3" maxlength="20" /></label>
+                <label><span>Nouveau mot de passe</span><input id="admin-identity-password" type="password" minlength="8" placeholder="Laisser vide pour ne pas modifier" /></label>
+                <button class="admin-btn admin-btn-primary" type="submit">Enregistrer</button>
+              </form>
+              <div class="admin-panel admin-danger-zone">
+                <div class="admin-panel-heading compact"><h2>Actions sensibles</h2></div>
+                <button id="admin-invalidate-sessions-btn" class="admin-btn admin-btn-secondary" type="button">Fermer toutes les sessions</button>
+                <button id="admin-reset-progress-btn" class="admin-btn admin-btn-warning" type="button">Réinitialiser la progression</button>
+                <button id="admin-delete-account-btn" class="admin-btn admin-btn-danger" type="button">Supprimer définitivement le compte</button>
+              </div>
+            </div>
+          </section>
+
+          <section id="admin-player-tab-json" class="admin-player-tab-content hidden">
+            <div class="admin-panel">
+              <div class="admin-panel-heading"><div><p class="admin-kicker">Mode expert</p><h2>Progression complète</h2></div><button id="admin-json-format-btn" class="admin-btn admin-btn-secondary" type="button">Reformater</button></div>
+              <p class="admin-muted">Toute modification est enregistrée dans l’historique d’administration.</p>
+              <textarea id="admin-progress-json" class="admin-json-editor" spellcheck="false"></textarea>
+              <div class="admin-action-row"><button id="admin-progress-save-btn" class="admin-btn admin-btn-primary" type="button">Enregistrer la progression JSON</button></div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="admin-cards-view" class="admin-view hidden">
+        <div class="admin-live-layout">
+          <form id="admin-card-management-form" class="admin-panel admin-form">
+            <div class="admin-panel-heading"><div><p class="admin-kicker">Équilibrage à distance</p><h2>Modifier une carte</h2></div><button id="admin-card-management-reset" class="admin-btn admin-btn-secondary" type="button">Réinitialiser</button></div>
+            <label><span>Carte</span><select id="admin-card-management-id"></select></label>
+            <div class="admin-popup-schedule-grid">
+              <label><span>Coût en mana</span><input id="admin-card-management-cost" type="number" min="0" max="30" placeholder="Valeur d’origine" /></label>
+              <label><span>Dégâts / attaque</span><input id="admin-card-management-damage" type="number" min="0" max="99" placeholder="Valeur d’origine" /></label>
+            </div>
+            <label><span>Rareté</span><select id="admin-card-management-rarity"><option value="">Valeur d’origine</option><option value="common">Commune</option><option value="rare">Rare</option><option value="epic">Épique</option><option value="legendary">Légendaire</option></select></label>
+            <label><span>Description</span><textarea id="admin-card-management-description" maxlength="1500" placeholder="Laisser vide pour conserver la description d’origine"></textarea></label>
+            <label class="admin-popup-checkbox-row"><input id="admin-card-management-disabled" type="checkbox" /><span>Désactiver temporairement cette carte</span></label>
+            <label><span>Réactivation automatique facultative</span><input id="admin-card-management-disabled-until" type="datetime-local" /></label>
+            <button class="admin-btn admin-btn-primary" type="submit">Enregistrer la modification</button>
+          </form>
+          <div class="admin-panel"><div class="admin-panel-heading"><div><p class="admin-kicker">État actuel</p><h2>Modifications actives</h2></div><button id="admin-cards-refresh" class="admin-btn admin-btn-secondary" type="button">Actualiser</button></div><div id="admin-card-overrides-list" class="admin-live-list"></div></div>
+        </div>
+      </section>
+
+      <section id="admin-events-view" class="admin-view hidden">
+        <div class="admin-live-layout">
+          <form id="admin-event-form" class="admin-panel admin-form">
+            <div class="admin-panel-heading"><div><p class="admin-kicker">Live Ops</p><h2 id="admin-event-form-title">Créer un événement</h2></div><button id="admin-event-cancel" class="admin-btn admin-btn-secondary hidden" type="button">Annuler</button></div>
+            <input id="admin-event-id" type="hidden" />
+            <label><span>Titre</span><input id="admin-event-title" maxlength="140" required /></label>
+            <label><span>Description</span><textarea id="admin-event-description" maxlength="5000"></textarea></label>
+            <label><span>Image facultative</span><input id="admin-event-image" type="url" placeholder="https://…" /></label>
+            <div class="admin-popup-schedule-grid"><label><span>Début</span><input id="admin-event-start" type="datetime-local" required /></label><label><span>Fin</span><input id="admin-event-end" type="datetime-local" required /></label></div>
+            <div class="admin-popup-fieldset"><div class="admin-popup-fieldset-heading"><div><strong>Récompenses immédiates</strong><small>Récupérables une fois pendant l’événement.</small></div><button class="admin-btn admin-btn-secondary" type="button" data-add-reward="admin-event-rewards">+ Récompense</button></div><div id="admin-event-rewards" class="admin-reward-list"></div></div>
+            <div class="admin-popup-fieldset"><div class="admin-popup-fieldset-heading"><div><strong>Quêtes de l’événement</strong><small>Objectifs intégrés à cet événement.</small></div><button id="admin-event-add-quest" class="admin-btn admin-btn-secondary" type="button">+ Quête</button></div><div id="admin-event-quests" class="admin-live-list"></div></div>
+            <label><span>Cartes exclusives</span><textarea id="admin-event-exclusive-cards" placeholder="IDs de cartes séparés par des virgules ou une ligne par carte"></textarea></label>
+            <label class="admin-popup-checkbox-row"><input id="admin-event-enabled" type="checkbox" checked /><span>Événement actif</span></label>
+            <button class="admin-btn admin-btn-primary" type="submit">Enregistrer l’événement</button>
+          </form>
+          <div class="admin-panel"><div class="admin-panel-heading"><div><p class="admin-kicker">Calendrier</p><h2>Événements programmés</h2></div><button id="admin-events-refresh" class="admin-btn admin-btn-secondary" type="button">Actualiser</button></div><div id="admin-events-list" class="admin-live-list"></div></div>
+        </div>
+      </section>
+
+      <section id="admin-quests-view" class="admin-view hidden">
+        <div class="admin-live-layout">
+          <form id="admin-quest-form" class="admin-panel admin-form">
+            <div class="admin-panel-heading"><div><p class="admin-kicker">Objectifs dynamiques</p><h2 id="admin-quest-form-title">Créer une quête</h2></div><button id="admin-quest-cancel" class="admin-btn admin-btn-secondary hidden" type="button">Annuler</button></div>
+            <input id="admin-quest-id" type="hidden" />
+            <div class="admin-popup-schedule-grid"><label><span>Icône</span><input id="admin-quest-icon" maxlength="16" value="✦" /></label><label><span>Type</span><select id="admin-quest-type"><option value="daily">Journalière</option><option value="weekly">Hebdomadaire</option><option value="event">Événementielle</option></select></label></div>
+            <label><span>Titre</span><input id="admin-quest-title" maxlength="140" required /></label>
+            <label><span>Description</span><textarea id="admin-quest-description" maxlength="3000"></textarea></label>
+            <div class="admin-popup-schedule-grid"><label><span>Action suivie</span><select id="admin-quest-event-key"><option value="winMatch">Gagner un combat</option><option value="playCard">Jouer une carte</option><option value="spellPlayed">Lancer un sort</option><option value="creatureSummoned">Invoquer une créature</option><option value="openPack">Ouvrir un paquet</option><option value="spendMana">Dépenser du mana</option><option value="adventureWin">Victoire aventure</option><option value="leagueWin">Victoire League</option></select></label><label><span>Objectif</span><input id="admin-quest-goal" type="number" min="1" max="1000000" value="3" required /></label></div>
+            <label><span>Événement lié facultatif</span><select id="admin-quest-event-id"><option value="">Aucun</option></select></label>
+            <div class="admin-popup-schedule-grid"><label><span>Début</span><input id="admin-quest-start" type="datetime-local" required /></label><label><span>Fin</span><input id="admin-quest-end" type="datetime-local" required /></label></div>
+            <div class="admin-popup-fieldset"><div class="admin-popup-fieldset-heading"><div><strong>Récompenses</strong></div><button class="admin-btn admin-btn-secondary" type="button" data-add-reward="admin-quest-rewards">+ Récompense</button></div><div id="admin-quest-rewards" class="admin-reward-list"></div></div>
+            <label class="admin-popup-checkbox-row"><input id="admin-quest-enabled" type="checkbox" checked /><span>Quête active</span></label>
+            <button class="admin-btn admin-btn-primary" type="submit">Enregistrer la quête</button>
+          </form>
+          <div class="admin-panel"><div class="admin-panel-heading"><div><p class="admin-kicker">Missions</p><h2>Quêtes administrables</h2></div><button id="admin-quests-refresh" class="admin-btn admin-btn-secondary" type="button">Actualiser</button></div><div id="admin-quests-list" class="admin-live-list"></div></div>
+        </div>
+      </section>
+
+      <section id="admin-shop-view" class="admin-view hidden">
+        <div class="admin-live-layout">
+          <form id="admin-offer-form" class="admin-panel admin-form">
+            <div class="admin-panel-heading"><div><p class="admin-kicker">Boutique à distance</p><h2 id="admin-offer-form-title">Créer une offre</h2></div><button id="admin-offer-cancel" class="admin-btn admin-btn-secondary hidden" type="button">Annuler</button></div>
+            <input id="admin-offer-id" type="hidden" />
+            <label><span>Titre</span><input id="admin-offer-title" maxlength="140" required /></label>
+            <label><span>Description</span><textarea id="admin-offer-description" maxlength="3000"></textarea></label>
+            <label><span>Image facultative</span><input id="admin-offer-image" type="url" placeholder="https://…" /></label>
+            <div class="admin-popup-schedule-grid"><label><span>Prix en pièces</span><input id="admin-offer-price" type="number" min="0" value="500" required /></label><label><span>Ancien prix promotionnel</span><input id="admin-offer-original-price" type="number" min="0" placeholder="Facultatif" /></label></div>
+            <label><span>Limite par joueur</span><input id="admin-offer-limit" type="number" min="0" value="0" /><small>0 = illimitée</small></label>
+            <div class="admin-popup-schedule-grid"><label><span>Début</span><input id="admin-offer-start" type="datetime-local" required /></label><label><span>Fin</span><input id="admin-offer-end" type="datetime-local" required /></label></div>
+            <div class="admin-popup-fieldset"><div class="admin-popup-fieldset-heading"><div><strong>Contenu de l’offre</strong></div><button class="admin-btn admin-btn-secondary" type="button" data-add-reward="admin-offer-rewards">+ Contenu</button></div><div id="admin-offer-rewards" class="admin-reward-list"></div></div>
+            <label class="admin-popup-checkbox-row"><input id="admin-offer-enabled" type="checkbox" checked /><span>Offre active</span></label>
+            <button class="admin-btn admin-btn-primary" type="submit">Publier l’offre</button>
+          </form>
+          <div class="admin-panel"><div class="admin-panel-heading"><div><p class="admin-kicker">Catalogue</p><h2>Offres programmées</h2></div><button id="admin-offers-refresh" class="admin-btn admin-btn-secondary" type="button">Actualiser</button></div><div id="admin-offers-list" class="admin-live-list"></div></div>
+        </div>
+      </section>
+
+      <section id="admin-maintenance-view" class="admin-view hidden">
+        <form id="admin-maintenance-form" class="admin-panel admin-form admin-maintenance-panel">
+          <div class="admin-panel-heading"><div><p class="admin-kicker">Accès au jeu</p><h2>Mode maintenance</h2></div><span id="admin-maintenance-state" class="admin-status-pill">Désactivé</span></div>
+          <label class="admin-popup-checkbox-row"><input id="admin-maintenance-enabled" type="checkbox" /><span>Activer le mode maintenance</span></label>
+          <label><span>Message personnalisé</span><textarea id="admin-maintenance-message" maxlength="2000">Le jeu est temporairement en maintenance. Merci de revenir un peu plus tard.</textarea></label>
+          <label><span>Réouverture estimée</span><input id="admin-maintenance-end" type="datetime-local" /></label>
+          <div class="admin-info-callout"><span>⚙</span><div><h3>Effet immédiat</h3><p>Les joueurs connectés reçoivent le changement en temps réel. Le panel administrateur reste accessible.</p></div></div>
+          <button class="admin-btn admin-btn-primary" type="submit">Enregistrer l’état</button>
+        </form>
+      </section>
+
+      <section id="admin-codes-view" class="admin-view hidden">
+        <div class="admin-live-layout">
+          <form id="admin-code-form" class="admin-panel admin-form">
+            <div class="admin-panel-heading"><div><p class="admin-kicker">Récompenses communautaires</p><h2 id="admin-code-form-title">Créer un code cadeau</h2></div><button id="admin-code-cancel" class="admin-btn admin-btn-secondary hidden" type="button">Annuler</button></div>
+            <input id="admin-code-id" type="hidden" />
+            <label><span>Code</span><input id="admin-code-value" maxlength="40" required placeholder="ASTREA2026" /></label>
+            <div class="admin-popup-schedule-grid"><label><span>Utilisations maximales</span><input id="admin-code-max-uses" type="number" min="0" value="0" /><small>0 = illimité</small></label><label><span>Expiration facultative</span><input id="admin-code-expiry" type="datetime-local" /></label></div>
+            <label><span>Début de validité</span><input id="admin-code-start" type="datetime-local" required /></label>
+            <div class="admin-popup-fieldset"><div class="admin-popup-fieldset-heading"><div><strong>Récompenses</strong></div><button class="admin-btn admin-btn-secondary" type="button" data-add-reward="admin-code-rewards">+ Récompense</button></div><div id="admin-code-rewards" class="admin-reward-list"></div></div>
+            <label class="admin-popup-checkbox-row"><input id="admin-code-enabled" type="checkbox" checked /><span>Code actif</span></label>
+            <button class="admin-btn admin-btn-primary" type="submit">Créer le code</button>
+          </form>
+          <div class="admin-panel"><div class="admin-panel-heading"><div><p class="admin-kicker">Distribution</p><h2>Codes cadeaux</h2></div><button id="admin-codes-refresh" class="admin-btn admin-btn-secondary" type="button">Actualiser</button></div><div id="admin-codes-list" class="admin-live-list"></div></div>
+        </div>
+      </section>
+
+      <section id="admin-logs-view" class="admin-view hidden">
+        <div class="admin-panel">
+          <div class="admin-panel-heading"><div><p class="admin-kicker">Traçabilité</p><h2>Logs complets</h2></div><button id="admin-logs-refresh" class="admin-btn admin-btn-secondary" type="button">Actualiser</button></div>
+          <form id="admin-logs-filter" class="admin-search-row admin-log-filters"><select id="admin-logs-category"><option value="">Toutes les catégories</option><option value="connection">Connexions</option><option value="purchase">Achats</option><option value="pack">Ouvertures de paquets</option><option value="sanction">Sanctions</option><option value="admin">Modifications admin</option><option value="reward">Récompenses</option><option value="game">Jeu</option></select><input id="admin-logs-query" type="search" placeholder="Pseudo, action ou détail…" /><button class="admin-btn admin-btn-primary" type="submit">Filtrer</button></form>
+          <div class="admin-log-table-wrap"><table class="admin-log-table"><thead><tr><th>Date</th><th>Catégorie</th><th>Action</th><th>Joueur</th><th>Administrateur</th><th>Détails</th></tr></thead><tbody id="admin-logs-body"></tbody></table></div>
+        </div>
+      </section>
+    </section>
+  </div>
+
+  <div id="admin-toast-container" class="admin-toast-container" aria-live="polite"></div>
+
+  <script src="cards.js"></script>
+  <script src="server-url.js"></script>
+  <script src="admin.js"></script>
+  <script src="admin-extensions.js"></script>
+</body>
+</html>

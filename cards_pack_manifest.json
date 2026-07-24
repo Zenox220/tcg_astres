@@ -1,0 +1,547 @@
+[
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_46 (1).png",
+    "asset": "creature_011.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_46 (2).png",
+    "asset": "creature_012.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_47 (3).png",
+    "asset": "creature_013.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_47 (4).png",
+    "asset": "creature_014.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_47 (5).png",
+    "asset": "creature_015.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_48 (6).png",
+    "asset": "spell_001.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_48 (7).png",
+    "asset": "spell_002.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_48 (8).png",
+    "asset": "spell_003.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_49 (10).png",
+    "asset": "spell_005.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_19_49 (9).png",
+    "asset": "spell_004.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_12 (1).png",
+    "asset": "spell_006.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_12 (2).png",
+    "asset": "spell_007.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_13 (3).png",
+    "asset": "spell_008.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_13 (4).png",
+    "asset": "spell_009.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_14 (5).png",
+    "asset": "quest_001.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_14 (6).png",
+    "asset": "quest_002.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_15 (7).png",
+    "asset": "quest_003.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_15 (8).png",
+    "asset": "creature_019.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_15 (9).png",
+    "asset": "weapon_003.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_22_16 (10).png",
+    "asset": "spell_014.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_46 (1).png",
+    "asset": "spell_018.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_46 (2).png",
+    "asset": "spell_019.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_47 (3).png",
+    "asset": "spell_020.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_48 (4).png",
+    "asset": "spell_021.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_49 (5).png",
+    "asset": "spell_022.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_49 (6).png",
+    "asset": "spell_023.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_49 (7).png",
+    "asset": "spell_024.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_51 (8).png",
+    "asset": "spell_025.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_51 (9).png",
+    "asset": "spell_026.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_06_51 (10).png",
+    "asset": "spell_027.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "01_eclat_de_guerison.png",
+    "asset": "spell_028.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "02_rongeur_des_catacombes.png",
+    "asset": "creature_027.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "03_posture_defensive.png",
+    "asset": "spell_029.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "04_imp_espiegle.png",
+    "asset": "creature_028.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "05_elixir_revigorant.png",
+    "asset": "spell_030.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "06_archer_de_sentinelle.png",
+    "asset": "creature_029.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "07_sceau_de_clairvoyance.png",
+    "asset": "spell_031.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "08_chevalier_du_soleil.png",
+    "asset": "creature_030.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "09_rempart_de_bois.png",
+    "asset": "spell_032.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "10_griffon_des_plaines.png",
+    "asset": "creature_031.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_15 (1).png",
+    "asset": "location_001.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_15 (2).png",
+    "asset": "spell_033.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_15 (3).png",
+    "asset": "creature_032.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_15 (4).png",
+    "asset": "weapon_001.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_15 (5).png",
+    "asset": "creature_018.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_46 (1).png",
+    "asset": "creature_001.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_47 (2).png",
+    "asset": "creature_002.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_49 (3).png",
+    "asset": "creature_003.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_50 (4).png",
+    "asset": "creature_004.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_51 (5).png",
+    "asset": "creature_005.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_52 (6).png",
+    "asset": "creature_006.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_53 (7).png",
+    "asset": "creature_007.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_54 (8).png",
+    "asset": "creature_008.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_55 (9).png",
+    "asset": "creature_009.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_41_56 (10).png",
+    "asset": "creature_010.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_24 (1).png",
+    "asset": "creature_033.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_24 (2).png",
+    "asset": "creature_034.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_25 (3).png",
+    "asset": "creature_035.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_25 (4).png",
+    "asset": "creature_036.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_25 (5).png",
+    "asset": "creature_037.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_26 (6).png",
+    "asset": "creature_038.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_26 (7).png",
+    "asset": "weapon_004.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_27 (8).png",
+    "asset": "spell_034.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_27 (9).png",
+    "asset": "spell_035.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_39_28 (10).png",
+    "asset": "spell_036.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_46_25.png",
+    "asset": "creature_039.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 22_54_54.png",
+    "asset": "creature_040.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 23_00_46.png",
+    "asset": "spell_037.png",
+    "status": "existing_replaced"
+  },
+  {
+    "source": "ChatGPT Image 12 juil. 2026, 00_23_40.png",
+    "asset": "source_pack/cards_reference_collage.png",
+    "status": "reference_only"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_04 (1).png",
+    "asset": "creature_041.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_05 (2).png",
+    "asset": "creature_042.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_05 (3).png",
+    "asset": "creature_043.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_06 (4).png",
+    "asset": "creature_044.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_08 (5).png",
+    "asset": "creature_045.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_08 (6).png",
+    "asset": "creature_046.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_08 (7).png",
+    "asset": "creature_047.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_09 (8).png",
+    "asset": "creature_048.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_09 (9).png",
+    "asset": "creature_049.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 05_50_10 (10).png",
+    "asset": "creature_050.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_20 (1).png",
+    "asset": "spell_038.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_21 (2).png",
+    "asset": "creature_051.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_21 (3).png",
+    "asset": "spell_039.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_21 (4).png",
+    "asset": "token_004.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_22 (5).png",
+    "asset": "spell_040.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_22 (6).png",
+    "asset": "spell_041.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_23 (10).png",
+    "asset": "spell_042.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_23 (7).png",
+    "asset": "creature_052.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_23 (8).png",
+    "asset": "creature_053.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_08_23 (9).png",
+    "asset": "creature_054.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_40 (1).png",
+    "asset": "weapon_005.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_41 (2).png",
+    "asset": "weapon_006.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_41 (3).png",
+    "asset": "weapon_007.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_41 (4).png",
+    "asset": "weapon_008.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_42 (5).png",
+    "asset": "weapon_009.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_42 (6).png",
+    "asset": "weapon_010.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_42 (7).png",
+    "asset": "weapon_011.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_44 (8).png",
+    "asset": "weapon_012.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_44 (9).png",
+    "asset": "weapon_013.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_18_45 (10).png",
+    "asset": "weapon_014.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_12 (1).png",
+    "asset": "creature_055.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_12 (2).png",
+    "asset": "creature_056.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_13 (3).png",
+    "asset": "creature_057.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_13 (4).png",
+    "asset": "creature_058.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_15 (5).png",
+    "asset": "creature_059.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_16 (6).png",
+    "asset": "creature_060.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_16 (7).png",
+    "asset": "creature_061.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_17 (10).png",
+    "asset": "creature_062.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_17 (8).png",
+    "asset": "creature_063.png",
+    "status": "new_card"
+  },
+  {
+    "source": "ChatGPT Image 13 juil. 2026, 06_26_17 (9).png",
+    "asset": "creature_064.png",
+    "status": "new_card"
+  }
+]
