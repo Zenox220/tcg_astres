@@ -1,0 +1,13 @@
+CHRONIQUES D'ASTRÉA — SONS D'INVOCATION DES CARTES
+
+Placez vos fichiers dans le sous-dossier audio/cartes/.
+Le nom recommandé est indiqué ci-dessous. Les formats .mp3, .ogg et .wav sont acceptés.
+Exemple : audio/cartes/etincelle_familiere.mp3
+
+Le jeu accepte aussi le même nom directement dans audio/ et l'identifiant de la carte (ex. creature_001.mp3).
+Pour un nom totalement différent, utilisez cardSummons dans audio/audio-config.js.
+
+LISTE DES 67 SERVITEURS ET JETONS
+====================================================
+token_002      | Fragment d’étoile
+                 audio/cartes/fragment_detoile.mp3

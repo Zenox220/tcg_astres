@@ -1,0 +1,17 @@
+TESTS EFFECTUÉS — NOUVELLES CARTES V41
+
+- Validation de la syntaxe de tous les fichiers JavaScript du projet.
+- Chargement du catalogue dans un environnement JavaScript isolé.
+- Vérification des identifiants et noms uniques.
+- Vérification de l'existence de chaque image déclarée.
+- Vérification que les 46 images nommées de nouvelles cartes sont enregistrées.
+- Vérification du retour en main et de la réduction de coût de l'Apprentie du Flux.
+- Vérification de l'invocation du Totem et de la réduction temporaire des sorts du Chaman brise-tempête.
+- Vérification de l'équipement de la Hache 2/2.
+- Vérification du gel puis des dégâts de l'Éclat de givre.
+- Vérification du bonus temporaire et de son expiration pour le Vétéran du rempart.
+- Vérification de la présence du dossier audio/cards et de la liste des noms audio.
+
+Résultat : PASS
+Catalogue total : 180 cartes et jetons.
+Nouvelles définitions ajoutées : 47, dont 40 cartes collectionnables et 7 cartes/jetons générés.
