@@ -1,0 +1,86 @@
+CHRONIQUES D'ASTRÉA — SONS DES NOUVELLES CARTES
+
+Déposez ici un fichier .mp3, .ogg ou .wav portant le nom recommandé.
+Le son est joué quand le serviteur est invoqué, qu'il soit joué depuis la main ou généré par un effet.
+Le dossier historique audio/cartes reste compatible.
+
+FICHIERS RECOMMANDÉS
+========================================================================
+Veilleur des Brumes
+  audio/cards/veilleur_des_brumes.mp3
+Apprentie du Flux
+  audio/cards/apprentie_du_flux.mp3
+Braconnier des Sables
+  audio/cards/braconnier_des_sables.mp3
+Mineur runique
+  audio/cards/mineur_runique.mp3
+Sentinelle du Hall
+  audio/cards/sentinelle_du_hall.mp3
+Traqueuse des Comètes
+  audio/cards/traqueuse_des_cometes.mp3
+Archiviste d'Astréa
+  audio/cards/archiviste_dastrea.mp3
+Rejeton des Cendres
+  audio/cards/rejeton_des_cendres.mp3
+Gardienne du Sceau
+  audio/cards/gardienne_du_sceau.mp3
+Frondeur du Crépuscule
+  audio/cards/frondeur_du_crepuscule.mp3
+Dragon de Scories
+  audio/cards/dragon_de_scories.mp3
+Brute de Ferroc
+  audio/cards/brute_de_ferroc.mp3
+Gobelin Bidouilleur
+  audio/cards/gobelin_bidouilleur.mp3
+Lynx des Ronces
+  audio/cards/lynx_des_ronces.mp3
+Automate Bastion
+  audio/cards/automate_bastion.mp3
+Drake azuré
+  audio/cards/drake_azure.mp3
+Sanglier de l'Orée
+  audio/cards/sanglier_de_loree.mp3
+Chaman des Cendres
+  audio/cards/chaman_des_cendres.mp3
+Récupérateur à ressorts
+  audio/cards/recuperateur_a_ressorts.mp3
+Faucon mécanique
+  audio/cards/faucon_mecanique.mp3
+Drake du Givre ancien
+  audio/cards/drake_du_givre_ancien.mp3
+Chef de guerre Ferroc
+  audio/cards/chef_de_guerre_ferroc.mp3
+Bombardier Gobelin
+  audio/cards/bombardier_gobelin.mp3
+Mastodonte des Ronces
+  audio/cards/mastodonte_des_ronces.mp3
+Sentinelle des engrenages
+  audio/cards/sentinelle_des_engrenages.mp3
+Traqueuse du Néant
+  audio/cards/traqueuse_du_neant.mp3
+Drake des braises éternelles
+  audio/cards/drake_des_braises_eternelles.mp3
+Chaman brise-tempête
+  audio/cards/chaman_brise_tempete.mp3
+Chef de siège Ferroc
+  audio/cards/chef_de_siege_ferroc.mp3
+Corrupteur abyssal
+  audio/cards/corrupteur_abyssal.mp3
+Championne de l'Aurore
+  audio/cards/championne_de_laurore.mp3
+Broyeur à pistons
+  audio/cards/broyeur_a_pistons.mp3
+Artificier fulminant
+  audio/cards/artificier_fulminant.mp3
+Alpha des crocs d'argent
+  audio/cards/alpha_des_crocs_dargent.mp3
+Vétéran du rempart
+  audio/cards/veteran_du_rempart.mp3
+Marcassin
+  audio/cards/marcassin.mp3
+Totem
+  audio/cards/totem.mp3
+Dragonnet
+  audio/cards/dragonnet.mp3
+Méca à vapeur
+  audio/cards/meca_a_vapeur.mp3
